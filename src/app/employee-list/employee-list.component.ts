@@ -1,14 +1,6 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 
 import { Employee } from '../shared/models/employee.model';
-
-const fibonacci = (num: number): number => {
-  if (num === 1 || num === 2) {
-    return 1;
-  }
-  return fibonacci(num - 1) + fibonacci(num - 2);
-};
-
 @Component({
   selector: 'ps-employee-list',
   templateUrl: 'employee-list.component.html',
@@ -17,7 +9,7 @@ const fibonacci = (num: number): number => {
 })
 export class EmployeeListComponent {
   @Input() employees!: Employee[];
-  @Input() department!: string;
+  @Input() companyName!: string;
 
   @Output() remove = new EventEmitter<Employee>();
   @Output() add = new EventEmitter<string>();
@@ -31,7 +23,7 @@ export class EmployeeListComponent {
     }
   }
 
-  calculate(num: number): number {
-    return fibonacci(num);
+  getRandomId(num: number): number {
+    return Math.round(Math.random() * num + 100);
   }
 }

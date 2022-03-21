@@ -1,13 +1,13 @@
 <ps-employee-list
-  [employees]="salesList"
-  department="Sales"
-  (add)="add(salesList, $event)"
-  (remove)="remove(salesList, $event)"
+  [employees]="paysafeEmployees"
+  companyName="Paysafe"
+  (add)="add(paysafeEmployees, $event)"
+  (remove)="remove(paysafeEmployees, $event)"
 ></ps-employee-list>
 
 <ps-employee-list
-  [employees]="rndList"
-  department="R&D"
-  (add)="add(rndList, $event)"
-  (remove)="remove(rndList, $event)"
+  [employees]="devbgEmployees"
+  companyName="DEV.BG"
+  (add)="add(devbgEmployees, $event)"
+  (remove)="remove(devbgEmployees, $event)"
 ></ps-employee-list>

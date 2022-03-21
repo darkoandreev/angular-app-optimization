@@ -12,15 +12,15 @@ const NUM_RANGE: [number, number] = [23, 28];
   styleUrls: ['app.component.scss']
 })
 export class AppComponent implements OnInit {
-  salesList!: Employee[];
-  rndList!: Employee[];
+  paysafeEmployees!: Employee[];
+  devbgEmployees!: Employee[];
   label!: string;
 
   constructor(private generator: ListGenerator) {}
 
   ngOnInit(): void {
-    this.salesList = this.generator.generate(EMPLOYEE_NAMES, NUM_RANGE, 100);
-    this.rndList = this.generator.generate(EMPLOYEE_NAMES, NUM_RANGE, 100);
+    this.paysafeEmployees = this.generator.generate(EMPLOYEE_NAMES, NUM_RANGE, 100);
+    this.devbgEmployees = this.generator.generate(EMPLOYEE_NAMES, NUM_RANGE, 100);
   }
 
   add(list: Employee[], name: string): void {
