@@ -1,13 +1,13 @@
 <ps-employee-list
   [employees]="paysafeEmployees"
   companyName="Paysafe"
-  (add)="add(paysafeEmployees, $event)"
-  (remove)="remove(paysafeEmployees, $event)"
+  (add)="paysafeEmployees = add(paysafeEmployees, $event)"
+  (remove)="paysafeEmployees = remove(paysafeEmployees, $event)"
 ></ps-employee-list>
 
 <ps-employee-list
   [employees]="devbgEmployees"
   companyName="DEV.BG"
-  (add)="add(devbgEmployees, $event)"
-  (remove)="remove(devbgEmployees, $event)"
+  (add)="devbgEmployees = add(devbgEmployees, $event)"
+  (remove)="devbgEmployees = remove(devbgEmployees, $event)"
 ></ps-employee-list>

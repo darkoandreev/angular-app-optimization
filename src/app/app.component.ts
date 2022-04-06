@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { List } from 'immutable';
 
 import { EMPLOYEE_NAMES } from './shared/constants/names';
 import { Employee } from './shared/models/employee.model';
@@ -12,22 +13,22 @@ const NUM_RANGE: [number, number] = [23, 28];
   styleUrls: ['app.component.scss']
 })
 export class AppComponent implements OnInit {
-  paysafeEmployees!: Employee[];
-  devbgEmployees!: Employee[];
+  paysafeEmployees!: List<Employee>;
+  devbgEmployees!: List<Employee>;
   label!: string;
 
   constructor(private generator: ListGenerator) {}
 
   ngOnInit(): void {
-    this.paysafeEmployees = this.generator.generate(EMPLOYEE_NAMES, NUM_RANGE, 100);
-    this.devbgEmployees = this.generator.generate(EMPLOYEE_NAMES, NUM_RANGE, 100);
+    this.paysafeEmployees = List(this.generator.generate(EMPLOYEE_NAMES, NUM_RANGE, 100));
+    this.devbgEmployees = List(this.generator.generate(EMPLOYEE_NAMES, NUM_RANGE, 100));
   }
 
-  add(list: Employee[], name: string): void {
-    list.unshift({ label: name, num: this.generator.generateNumber(NUM_RANGE) });
+  add(list: List<Employee>, name: string): List<Employee> {
+    return list.unshift({ label: name, num: this.generator.generateNumber(NUM_RANGE) });
   }
 
-  remove(list: Employee[], node: Employee): void {
-    list.splice(list.indexOf(node), 1);
+  remove(list: List<Employee>, node: Employee): List<Employee> {
+    return list.splice(list.indexOf(node), 1);
   }
 }

@@ -10,6 +10,9 @@ import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { NgModule } from '@angular/core';
+import { ListComponent } from '../list/list.component';
+import { InputComponent } from '../input/input.component';
+import { RandomIdPipe } from '../random-id.pipe';
 
 @NgModule({
   imports: [
@@ -24,7 +27,7 @@ import { NgModule } from '@angular/core';
     MatButtonModule,
     MatIconModule
   ],
-  declarations: [EmployeeListComponent],
-  exports: [EmployeeListComponent]
+  declarations: [EmployeeListComponent, ListComponent, InputComponent, RandomIdPipe],
+  exports: [EmployeeListComponent, ListComponent, InputComponent]
 })
 export class EmployeeListModule {}

@@ -1,25 +1,4 @@
 <h1 title="Company name">{{ companyName }}</h1>
 
-<mat-form-field>
-  <input placeholder="Employee name..." matInput type="text" [(ngModel)]="label" (keydown)="handleKey($event)">
-</mat-form-field>
-
-<mat-list>
-  <div *ngIf="!employees.length" class="empty-list-label">Empty list</div>
-  <h3>Number of employees: {{ employees.length }}</h3>
-  <mat-list-item *ngFor="let employee of employees">
-    <h3 matLine title="Name">
-      {{ employee.label }}
-    </h3>
-    <mat-chip-list>
-      <mat-chip title="Score" class="mat-chip mat-primary mat-chip-selected" color="primary" selected="true">
-        Employee ID: {{ getRandomId(employee.num) }}
-      </mat-chip>
-    </mat-chip-list>
-    <button mat-button (click)="remove.emit(employee)">
-      Delete
-    </button>
-    <mat-divider></mat-divider>
-  </mat-list-item>
-  <mat-divider *ngIf="employees.length !== 0"></mat-divider>
-</mat-list>
+<app-input (add)="add.emit($event)"></app-input>
+<app-list [employees]="employees" (remove)="remove.emit($event)"></app-list>
